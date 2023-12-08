@@ -17,7 +17,8 @@ def is_ffmpeg_installed():
         result = subprocess.check_output(["ffmpeg", "-version"], stderr=subprocess.STDOUT).decode()
         return 'ffmpeg version' in result
     except Exception:
-        return False
+        pass
+        # return False
 
 def download_youtube_video(url):
     command = f"youtube-dl -f 'bestvideo+bestaudio/best' {url}"
